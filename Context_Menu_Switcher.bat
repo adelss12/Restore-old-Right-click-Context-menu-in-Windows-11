@@ -20,30 +20,36 @@ if errorlevel 1 goto classic
 :classic
 cls
 echo Restoring the old classic context menu...
-reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul 2>&1
+echo.
+reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
 
 if errorlevel 1 goto error
 echo.
 echo The old classic context menu was restored successfully.
-goto finish
+goto restart_explorer
 
 :modern
 cls
 echo Restoring the current Windows 11 context menu...
-
-reg.exe query "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" >nul 2>&1
-if errorlevel 1 (
-    echo.
-    echo The current Windows 11 context menu is already active.
-    goto finish
-)
-
-reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f >nul 2>&1
+echo.
+reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f
 
 if errorlevel 1 goto error
 echo.
 echo The current Windows 11 context menu was restored successfully.
-goto finish
+goto restart_explorer
+
+:restart_explorer
+echo.
+echo Restarting File Explorer to apply the change...
+taskkill /f /im explorer.exe >nul 2>&1
+timeout /t 2 /nobreak >nul
+start "" explorer.exe
+echo.
+echo File Explorer was restarted successfully.
+echo.
+pause
+exit /b 0
 
 :error
 echo.
@@ -52,11 +58,3 @@ echo Try running this file as administrator.
 echo.
 pause
 exit /b 1
-
-:finish
-echo.
-echo Restart File Explorer or restart the computer
-echo to apply the change.
-echo.
-pause
-exit /b 0
