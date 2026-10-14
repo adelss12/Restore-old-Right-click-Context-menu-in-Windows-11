@@ -1,3 +1,32 @@
+<div dir="rtl">
+
+# 🖱️ قائمة الزر الأيمن في Windows 11
+
+أداة صغيرة للتبديل بين **قائمة الزر الأيمن الكلاسيكية** (الكاملة بكل الخيارات) و**القائمة الحديثة** في Windows 11.
+
+### ⬇️ [تنزيل Context_Menu_Switcher.bat](https://github.com/adelss12/Restore-old-Right-click-Context-menu-in-Windows-11/releases/latest)
+
+## طريقة الاستخدام
+1. نزّل الملف وانقر عليه نقرًا مزدوجًا. **لا يحتاج صلاحيات المسؤول**، لأنه يغيّر إعداد المستخدم الحالي فقط.
+2. يعرض لك القائمة المفعّلة حاليًا، فاختر:
+   - **1** للقائمة الكلاسيكية.
+   - **2** للقائمة الحديثة.
+   - **3** للخروج.
+3. يسألك قبل إعادة تشغيل مستكشف الملفات لتطبيق التغيير. نوافذ المجلدات المفتوحة ستُغلق، أما ملفاتك فلا تتأثر.
+
+## ما الجديد في 1.1.0
+- يعرض القائمة المفعّلة حاليًا قبل الاختيار.
+- إذا اخترت القائمة المفعّلة أصلًا يخبرك بذلك بدل إظهار رسالة خطأ.
+- يتأكد أن الجهاز Windows 11.
+- يسألك قبل إعادة تشغيل مستكشف الملفات، وفيه خيار خروج.
+- إصلاح نهايات الأسطر لتعمل أوامر الملف بشكل موثوق في ويندوز.
+
+> ملاحظة: أصل هذا المستودع مشروع إنجليزي قديم، وتجد شرحه الأصلي أدناه.
+
+---
+
+</div>
+
 # Restore Old Right-Click Context Menu in Windows 11
 
 Starting with Windows 11, the context menu in the File Explorer has been refreshed to a more compact and modern design. However, this new context menu displays fewer items compared to the legacy context menu. This guide discusses how to restore the legacy context menu in Windows 11, allowing it to show up by default.
@@ -32,7 +61,7 @@ For a quicker and easier method, you can use the provided script to restore the 
 
 1. **Download the script** from the repository.
    
-2. **Run the script as an administrator** by right-clicking it and selecting "Run as administrator."
+2. **Run the script** by double-clicking it (administrator rights are not needed).
 
 3. The script will automatically add the necessary registry entry and prompt you to restart File Explorer.
 
